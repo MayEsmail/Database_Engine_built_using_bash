@@ -13,7 +13,7 @@ if [ $valid_name -ne 0 ]
 then
 	mkdir Databases/$1
 	mkdir Databases/$1/tables
-	touch Databases/$1/password
-	echo "$2" >> Databases/$1/password
+	touch Databases/$1/.password
+	echo "$2" >> Databases/$1/.password
 	echo -e "\n####### Database Created Successfully, Name: $1, Secured #######"
 fi

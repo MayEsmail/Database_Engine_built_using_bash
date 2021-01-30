@@ -5,7 +5,7 @@ do
 	if [ Databases/$1 = $db ]
 	then
 		(( name_exist=1 ))
-		if [ $(<"$db"/password) = $2 ]
+		if [ $(<"$db"/.password) = $2 ]
 		then
 			clear;
 			cd $db
