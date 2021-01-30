@@ -14,7 +14,8 @@ do
 		2 ) echo "Available tables are: "
 		    ls -1 tables
 			;;
-		3 ) #remove table file (validate existance first)
+		3 ) read -p "Enter Name of table to be removed: " table_name
+		    ../.././Remove_Table.sh $table_name
 			;;
 		4 ) #insert into Table file (validate existance first)
 			;;
@@ -25,7 +26,7 @@ do
 		7 ) #Update table (validate existance first)
 			;;
 		8 ) read -sp "Enter the new password: " pass
-		    echo $pass > password
+		    echo $pass > .password
 		    echo -e "\n####### Password Changed Successfully ########"
 			;;
 		9 ) echo -e "\n                      ####### Logging Out #######" 
