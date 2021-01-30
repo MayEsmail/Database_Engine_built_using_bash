@@ -9,6 +9,7 @@ select option in "Create Table" "Show all Tables" "Remove Table" "Insert Into Ta
 do
 	case $REPLY in
 		1 ) #Create table file in /tables
+		     ../.././table_create.sh
 			;;
 		2 ) echo "Available tables are: "
 		    ls -1 tables
