@@ -38,12 +38,14 @@ do
 			draw_options
 			;;
 		4 ) #insert into Table file (validate existance first)
+		   ../.././insertTable.sh
 			;;
 		5 ) ../.././Select.sh
 		    draw_screen $1
 		    draw_options
 			;;
 		6 ) #Delete from Table (validate existance first)
+			../.././deleteFrom.sh
 			;;
 		7 ) 
 			;;
