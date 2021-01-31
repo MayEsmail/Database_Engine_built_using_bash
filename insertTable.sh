@@ -9,6 +9,8 @@ if [[ -f tables/$insertb ]]
 then
 typeset  number_row=`awk 'END { print NR }' tables/$insertb".meta";`
 pk=`awk -F: '{print $1}' tables/$insertb`
+dt=`awk -F: '{print $2}' tables/$insertb.meta`
+#echo $dt
 for(( i=0 ; i<$number_row ; i++ ))
 do
 	read -p "     Enter Data Of The $i Coulumn : " data
@@ -32,12 +34,11 @@ do
 		else
 			echo "*****Duplicated Primary key********"
 			sleep 1
-			./.sh
+			 ../.././insertTable.sh
 		fi
 
 	fi
 AppendedLine+="${data}:"
-
 done
 echo "${AppendedLine}">> tables/$insertb
 echo "----------------------------------------------"
@@ -60,4 +61,9 @@ echo "Wrong choice"
 ;;
 esac
 done
+else
+	 echo "please insert table Name vaild "
+        sleep 1
+        ../.././insertTable.sh
+
 fi
