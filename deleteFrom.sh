@@ -8,7 +8,7 @@ read -p "     Enter Table Name : " TableName
 if [[ -f tables/$TableName ]]
 then
 
-select var in "Delete Specific Record" "Back"
+select var in "Delete Specific Record" "Delete *" "Back"
 do
 case $var in
 
@@ -16,6 +16,10 @@ case $var in
 
 read -p "      please insert Primary key of the record you want to delete : " PK
 sed -i "/$PK/d" tables/$TableName 
+;;
+
+"Delete *")
+sed -i d tables/$TableName
 ;;
 
 "Back")
@@ -28,6 +32,6 @@ esac
 done
 else 
 	echo "please insert table Name vaild "
-	sleep 2
+	sleep 1
 	../.././deleteFrom.sh 
 fi
