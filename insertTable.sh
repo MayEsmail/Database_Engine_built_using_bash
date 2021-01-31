@@ -23,7 +23,7 @@ do
 	if [[ "$pk" = *:* ]]
 	then
 		(( correctness_flag = 0 ))
-		echo "Sorry, you can't use colons"
+		echo "####### Sorry, you can't use colons #######"
 		continue
 	fi
 	if [ ${cols_datatypes[0]} = "int" ]
@@ -60,24 +60,41 @@ do
 		(( index++ ))
 		continue
 	fi
-	read -p "##Enter the ${mycols[$index]} : " data
-	(( correctness_flag = 0 ))	
-	while [ $correctness_flag -eq 0 ]
-	do
+	if [ ${cols_datatypes[$index]} = "int" ]
+	then
+		(( correctness_flag = 0 ))
+		while [ $correctness_flag = 0 ]
+		do
+		read -p "##Enter Value OF ${mycols[$index]} : " data
 		(( correctness_flag = 1 ))
-		if [ ${cols_datatypes[$index]} = "int" ]
-		then
-			case $data in 
-			+([0-9]))
+		case $data in 
+			+([0-9]) )
 				;;
 			*) 
 				(( correctness_flag = 0 ))
 				echo "####### Error, $data is not an integer #######"
-				continue
-				;;
-		esac	
-		fi
-	done
+				;;		
+		esac
+		done
+	else
+		read -p "##Enter Value Of ${mycols[$index]} : " data
+	fi
+	if [[ "$data" = *:* ]]
+	then
+		echo "####### Sorry, you can't use colons #######"
+		(( correctness_flag = 0 ))
+		while [ $correctness_flag = 0 ]
+		do
+			read -p "##Enter Value OF ${mycols[$index]} : " data
+			(( correctness_flag = 1 ))
+			if [[ "$data" = *:* ]]
+			then
+				(( correctness_flag = 0 ))
+				echo "####### Sorry, you can't use colons #######"
+			fi		
+		done
+
+	fi
 	(( index++ ))
 	if (( index == len ))
 	then	

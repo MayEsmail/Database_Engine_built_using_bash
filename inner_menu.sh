@@ -13,8 +13,9 @@ function draw_options(){
 	echo "5) Select from Table"
 	echo "6) Delete from Table"
 	echo "7) Update Table"
-	echo "8) Change Database's Password"
-	echo "9) Exit Database"
+	echo "8) Describe Table"
+	echo "9) Change Database's Password"
+	echo "10) Exit Database"
 }
 clear;
 draw_screen $1

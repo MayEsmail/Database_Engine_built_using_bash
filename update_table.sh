@@ -34,7 +34,7 @@ do
                 else
                         echo "*****Duplicated Primary key********"
                         sleep 1
-                         ../.././update_table.sh
+                         exit
                 fi
 
         fi
@@ -49,7 +49,7 @@ echo "----------------------------------------------"
 
 else
         echo "please insert table Name vaild "
-        sleep 1
+        sleep 1.5
         ./update_table.sh
 
 fi

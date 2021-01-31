@@ -15,15 +15,17 @@ case $var in
 "Delete Specific Record")
 
 read -p "      please insert Primary key of the record you want to delete : " PK
-sed -i "/$PK/d" tables/$TableName 
+sed -i "/$PK/d" tables/$TableName
+break 
 ;;
 
 "Delete *")
 sed -i d tables/$TableName
+break
 ;;
 
 "Back")
-../.././inner_menu.sh
+exit
 ;;
 *)
 echo "Worng choice"
@@ -33,5 +35,5 @@ done
 else 
 	echo "please insert table Name vaild "
 	sleep 1
-	../.././deleteFrom.sh 
+	exit
 fi
