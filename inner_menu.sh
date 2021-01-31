@@ -49,8 +49,15 @@ do
 			;;
 		6 ) #Delete from Table (validate existance first)
 			../.././deleteFrom.sh
+		    clear;
+		    draw_screen $1	
+		    draw_options
 			;;
-		7 )
+		7 )#update table
+		     ../.././update_table.sh
+		   clear;
+		   draw_screen $1	
+		   draw_options
 			;;
 		8 ) read -p "Enter Name of table to be described " table_name
 		   ../.././Desc.sh $table_name

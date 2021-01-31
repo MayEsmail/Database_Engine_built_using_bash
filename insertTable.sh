@@ -48,6 +48,7 @@ do
 	if [ $correctness_flag -eq 0 ]
 	then
 		echo "####### $1 with Primary_key $pk already exists #######"
+		continue
 	fi
 	AppendedLine+="$pk:"
 done
