@@ -37,8 +37,11 @@ do
 			draw_screen $1
 			draw_options
 			;;
-		4 ) #insert into Table file (validate existance first)
-		   ../.././insertTable.sh
+		4 ) read -p "Enter Name of table to insert into it: " table_name
+		   ../.././insertTable.sh $table_name
+		    clear;
+		    draw_screen $1	
+		    draw_options			
 			;;
 		5 ) ../.././Select.sh
 		    draw_screen $1
