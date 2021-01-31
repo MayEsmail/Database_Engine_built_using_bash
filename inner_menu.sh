@@ -12,15 +12,18 @@ do
 		     ../.././table_create.sh
 			;;
 		2 ) echo "Available tables are: "
-		    ls -1 tables
+		    ls  tables
+		   #find tables -not -name "*meta"  
 			;;
 		3 ) #remove table file (validate existance first)
 			;;
 		4 ) #insert into Table file (validate existance first)
+		   ../.././insertTable.sh
 			;;
 		5 ) #Select from Table (validate existance first)
 			;;
 		6 ) #Delete from Table (validate existance first)
+			../.././deleteFrom.sh
 			;;
 		7 ) #Update table (validate existance first)
 			;;
