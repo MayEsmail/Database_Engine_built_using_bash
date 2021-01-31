@@ -19,10 +19,10 @@ function draw_options(){
 clear;
 draw_screen $1
 COLUMNS=0
-select option in "Create Table" "Show all Tables" "Remove Table" "Insert Into Table" "Select from Table" "Delete from Table" "Update Table" "Change Database's Password" "Exit Database"
+select option in "Create Table" "Show all Tables" "Remove Table" "Insert Into Table" "Select from Table" "Delete from Table" "Update Table" "Describe Table" "Change Database's Password" "Exit Database"
 do
 	case $REPLY in
-		1 ) #Create table file in /tables
+		1 ) 
 		     ../.././table_create.sh
 		    clear;
 		    draw_screen $1	
@@ -50,18 +50,22 @@ do
 		6 ) #Delete from Table (validate existance first)
 			../.././deleteFrom.sh
 			;;
-		7 ) 
+		7 )
 			;;
-		8 ) read -sp "Enter the new password: " pass
+		8 ) read -p "Enter Name of table to be described " table_name
+		   ../.././Desc.sh $table_name
+			;;
+		9 ) read -sp "Enter the new password: " pass
 		    echo $pass > .password
 		    echo -e "\n####### Password Changed Successfully ########"
 		    	clear;
 			draw_screen $1
 			draw_options
 			;;
-		9 ) echo -e "\n                      ####### Logging Out #######" 
+		10 ) echo -e "\n                      ####### Logging Out #######" 
 		    sleep 1
 		    exit
 			;;
+		* ) echo "####### Invalid OPtion, Enter a Number in range 1...10 #######"
 esac
 done
