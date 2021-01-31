@@ -6,6 +6,7 @@ do
 	then
 		(( valid_name = 0 ))
 		echo -e "\n####### The Name of Database already exists! ########"
+		sleep 1.5
 		break
 	fi
 done
@@ -16,4 +17,5 @@ then
 	touch Databases/$1/.password
 	echo "$2" >> Databases/$1/.password
 	echo -e "\n####### Database Created Successfully, Name: $1, Secured #######"
+	sleep 1.5
 fi

@@ -3,11 +3,11 @@ clear;
 echo "******************************************"
 echo "           Show data from Table           "
 echo -e "******************************************\n"
-
+COLUMNS=0
 read -p "Enter the name of the table : " table_name
 if [[ -f $table_name ]]
 then
-	select x in "Select * from $table_name" "Select by primary key" "do Aggregate function on column" "Specify Columns and Condition" "Back"
+	select x in "Select * from $table_name" "Select by primary key" "do Aggregate function on column" "Back"
 	do
 		case $REPLY in
 			1 )
@@ -27,9 +27,11 @@ then
 				awk -F: -v p=$prim '{ if($1 == p){for(i=1;i<=NF;i++)printf("%10s",$i); printf "\n"; exit}} ' "$table_name"
 				break
 				;;
-			3 )	../../.././Aggregate_Func.sh $table_name;;
-			4 )	../../.././Select_cols_conds.sh $table_name;;
-			5 )	exit; ;;					
+			3 )	read -p "Enter Column's Name : " col
+				../../.././Select_Aggregate_Func.sh $table_name $col
+				break ;;
+			5 )	exit ;;
+			* ) echo "Invalid Option, Please select a number in range 1..5"	 ;;				
 		esac
 	done
 else

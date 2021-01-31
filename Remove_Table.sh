@@ -7,3 +7,4 @@ then
 else
 	echo "####### Table $1 Not Found, Check the name #######"
 fi
+sleep 1.5
