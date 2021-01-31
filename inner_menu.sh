@@ -12,16 +12,19 @@ do
 		     ../.././table_create.sh
 			;;
 		2 ) echo "Available tables are: "
-		    ls -1 tables
+		    ls  tables
+		   #find tables -not -name "*meta"  
 			;;
 		3 ) read -p "Enter Name of table to be removed: " table_name
 		    ../.././Remove_Table.sh $table_name
 			;;
 		4 ) #insert into Table file (validate existance first)
+		   ../.././insertTable.sh
 			;;
 		5 ) #Select from Table (validate existance first)
 			;;
 		6 ) #Delete from Table (validate existance first)
+			../.././deleteFrom.sh
 			;;
 		7 ) #Update table (validate existance first)
 			;;
