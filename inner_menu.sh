@@ -47,7 +47,8 @@ do
 		6 ) #Delete from Table (validate existance first)
 			../.././deleteFrom.sh
 			;;
-		7 ) 
+		7 )#update table
+		     ../.././update_table.sh	
 			;;
 		8 ) read -sp "Enter the new password: " pass
 		    echo $pass > .password
