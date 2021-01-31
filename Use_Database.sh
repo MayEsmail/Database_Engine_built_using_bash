@@ -9,7 +9,6 @@ do
 		then
 			clear;
 			cd $db
-			pwd;
 			../.././inner_menu.sh $1
 		else
 			echo -e "\n####### Wrong Password #######"
